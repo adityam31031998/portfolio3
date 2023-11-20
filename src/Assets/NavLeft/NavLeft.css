@@ -1,0 +1,35 @@
+.navLeftContainer {
+  color: white;
+  max-width:  80%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 4%;
+  margin: 10% auto;
+  border-radius: 10px;
+  /* background-color: 	#353839; */
+  /* box-shadow: 0px 0px 2px 1px white; */
+}
+a{
+  font-size: 3vh;
+}
+.navLeftContainer:hover {
+  color: white;
+  box-shadow: 0px 0px 2px 1px rgb(0, 0, 0);
+
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 4%;
+  color: yellow;
+  margin: 10% auto;
+  /* border: 1px solid yellow; */
+  border-radius: 10px;
+  /* background-color: 	#060606; */
+}
+

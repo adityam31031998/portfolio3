@@ -1,0 +1,63 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0px;
+}
+.body1 {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.navLeft {
+  position: relative;
+  width: 13%;
+  height: 100%;
+  background-color: rgb(38, 31, 31);
+}
+
+.profile {
+  border-radius: 0 0 10px 10px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.profileName {
+  font-size: 2vh;
+  font-weight: bold;
+  color:white;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.407);
+  padding: 5px;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.navRight {
+  color: aliceblue;
+  width: 90%;
+  background-color: rgb(232, 0, 0);
+  overflow-y: auto;
+  transition: transform 1s ease;
+  &.zoomOut {
+    transform: scale(0.97);
+  }
+}
+
+.animationIcon{
+  width: 40%;
+  height: auto;
+}
+
+
+
+
