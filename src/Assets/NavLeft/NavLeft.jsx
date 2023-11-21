@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useZoom } from "../Zoom/ZoomContext";
 import "./NavLeft.css";
-const NavLeft = ({ navText, navTo }) => {
+
+const NavLeft = ({ navText, navTo,imgs }) => {
   const { setZoom } = useZoom();
 
   const handleLinkClick = () => {
@@ -16,7 +17,9 @@ const NavLeft = ({ navText, navTo }) => {
   return (
     <>
       <Link to={navTo} onClick={handleLinkClick}>
-        <div className="navLeftContainer">{navText}</div>
+        
+        <div className="navLeftContainer"><img src={imgs} className="icon1" alt="loading" />
+        {navText}</div>
       </Link>
       <hr />
     </>

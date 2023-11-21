@@ -17,8 +17,10 @@ const App = () => {
               <img src="./fin.png" className="profile" alt="loading" />
               <p className="profileName">Aditya .M</p>
             </div>
-            <NavLeft navText={"Home"} navTo={"/"} />
-            <NavLeft navText={"About"} navTo={"About"} />
+            <NavLeft navText={"Home"} navTo={"/"}  imgs={"./home2.png"} />
+            <NavLeft navText={"About"} navTo={"About"}  imgs={"./about.png"}/>
+            <NavLeft navText={"Resume"} navTo={"Resume"} imgs={"./portfolio.png"}/>
+            <NavLeft navText={"Portfolio"} imgs={"./resume.png"} navTo={"Portfolio"} />
 
             <NavLeftFotter />
           </div>

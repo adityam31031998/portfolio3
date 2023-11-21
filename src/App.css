@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .body1 {
   background-color: black;
@@ -14,7 +15,9 @@
   position: relative;
   width: 13%;
   height: 100%;
-  background-color: rgb(38, 31, 31);
+  background-color: rgb(51, 46, 46);
+  
+  justify-content: start;
 }
 
 .profile {
