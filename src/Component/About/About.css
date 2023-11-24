@@ -38,15 +38,14 @@ u {
 .aboutPara{
     font-family: cursive;
     padding: 3%;
-    font-size: 120%;
+    font-size: 115%;
     font-style: italic;
     text-align: justify;
 }
 .aboutParaInfo{
     font-family: cursive;
     padding: 1%;
-
-    font-size: 130%;
+    font-size: 110%;
     text-align: justify; 
 }
 .aboutServices{
@@ -60,4 +59,14 @@ u {
     justify-content:center ;
     /* background-color: #00a3e0; */
     height: 300px;
+}
+
+.logo{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  display: inline-block;
 }

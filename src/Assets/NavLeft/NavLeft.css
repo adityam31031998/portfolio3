@@ -4,11 +4,12 @@
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  align-items: center;
+  align-items:center ;
+  align-content: center;
   height: 4%;
   text-align: start;
   
-  justify-content: center;
+  justify-content: flex-start;
   margin: 10% auto;
   border-radius: 10px;
   /* background-color: 	#353839; */
@@ -22,18 +23,18 @@ a{
   width: 30%;
 }
 .navLeftContainer:hover {
-  color: white;
-  width: 80%;
+  color: yellow;
+  max-width:  80%;
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  align-items: center;
-  justify-content: center;
+  align-items:center ;
+  align-content: center;
   height: 4%;
-  color: yellow;
+  text-align: start;
+  
+  justify-content: flex-start;
   margin: 10% auto;
-  /* border: 1px solid yellow; */
   border-radius: 10px;
-  /* background-color: 	#060606; */
 }
 

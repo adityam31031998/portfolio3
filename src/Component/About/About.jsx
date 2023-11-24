@@ -1,6 +1,11 @@
 import React from "react";
 import "./About.css";
+import { saveAs } from 'file-saver';
+
 const About = () => {
+  const handleDownload = () => {
+    saveAs('./resume.pdf', 'AdityaResume.pdf');
+  };
   return (
     <div className="aboutContainer">
       <div className="col-12">
@@ -51,7 +56,7 @@ const About = () => {
             <u>Work</u>: Full Time, Any Shift.
             <br />
             <br />
-            <a href="https://drive.google.com/drive/folders/107jEobAI690u6IACZaOOra_IXgHztNmr" rel="noreferrer"  target="_blank"><button className="resumeDownload">Download Resume</button></a>
+            <button className="resumeDownload" onClick={handleDownload}>Download Resume</button>
           </p>
         </div>
       </div>

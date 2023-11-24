@@ -35,7 +35,6 @@ const Resume = () => {
                   <br />
                   {"\u2022"} React, HTML, CSS, JavaScript
                   <br />
-                  <br />
                 </>
               }
             />
