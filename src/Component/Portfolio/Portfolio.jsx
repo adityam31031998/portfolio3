@@ -13,7 +13,7 @@ import Game from "./Project/Games/Game";
 
 const Portfolio = () => {
   const imagesData = [
-    { id: 1, src: "./home1.png", title: "Image 1", links: "/Portfolio/todolist" },
+    { id: 1, src: "./home1.png", title: "Todolist", links: "Todolist" },
     { id: 2, src: "./home1.png", title: "Image 1", links: "/Wet" },
     { id: 3, src: "./home2.png", title: "Image 1", links: "/Movies" },
     // Add more image data as needed
@@ -24,7 +24,7 @@ const Portfolio = () => {
       <div className="main1">
         <Routes>
           <Route path="/Portfolio" element={<Portfolio />} />
-          <Route path="/Portfolio/todolist" element={<TodoList />} />
+          <Route path="Todolist" element={<TodoList />} />
           <Route path="/Portfolio/Wet" element={<Wet />} />
           <Route path="/Portfolio/Movies" element={<Movies />} />
           <Route path="/Portfolio/Games" element={<Game />} />
