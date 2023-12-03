@@ -5,6 +5,8 @@ import About from "../../Component/About/About";
 import { useZoom } from "../Zoom/ZoomContext";
 import Resume from "../../Component/Resume/Resume";
 import Portfolio from "../../Component/Portfolio/Portfolio";
+import TodoList from "../../Component/Portfolio/Project/TodoList/TodoList";
+
 
 const NavRight = () => {
   const { zoomState } = useZoom();
@@ -17,6 +19,7 @@ const NavRight = () => {
         <Route path="/About" element={<About />} />
         <Route path="/Resume" element={<Resume />} />
         <Route path="/Portfolio/*" element={<Portfolio />} />
+        <Route path="/todolist" element={<TodoList />} /> {/* Add this line */}
       </Routes>
     </div>
   );

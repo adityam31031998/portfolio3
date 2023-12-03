@@ -1,12 +1,13 @@
 // App.js
 import React, { useState } from "react";
-import { BrowserRouter ,Route,Routes} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import NavLeft from "./Assets/NavLeft/NavLeft";
 import NavRight from "./Assets/NavRight/NavRight";
 import { ZoomProvider } from "./Assets/Zoom/ZoomContext";
 import { NavLeftFotter } from "./Assets/NavLeftFotter/NavLeftFotter";
-import Portfolio from "./Component/Portfolio/Portfolio";
+
+
 
 const App = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
@@ -21,9 +22,12 @@ const App = () => {
   };
 
   return (
+
     <BrowserRouter>
       <ZoomProvider>
-        <div className={`body1 ${sidebarActive ? "sidebar-active" : ""}`}>
+        <div className="mouser">
+
+        <div className={`body1 ${sidebarActive ? "sidebar-active" : ""}`} >
           <div id="sidebar" className={sidebarActive ? "active" : ""}>
             <div className="toggle-btn" onClick={toggleSidebar}>
               <div className={`toggle ${sidebarActive ? "active" : ""}`}>
@@ -37,10 +41,7 @@ const App = () => {
                 <img src="./fin.png" className="profile" alt="loading" />
                 <p className="profileName">Aditya .M</p>
               </div>
-              <Routes>
 
-              <Route path="/" element={<Portfolio />} />
-              </Routes>
               <NavLeft navText={"Home"} navTo={"/"} imgs={"./home4.png"} onClick={handleLinkClick} />
               <NavLeft navText={"About"} navTo={"About"} imgs={"./about.png"} onClick={handleLinkClick} />
               <NavLeft navText={"Resume"} navTo={"Resume"} imgs={"./portfolio.png"} onClick={handleLinkClick} />
@@ -51,8 +52,10 @@ const App = () => {
           <div className="content"></div>
           <NavRight />
         </div>
+        </div>
       </ZoomProvider>
     </BrowserRouter>
+
   );
 };
 
