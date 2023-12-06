@@ -1,0 +1,213 @@
+.body {
+  background-color: rgb(18, 200, 200);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.container {
+  position: relative;
+  background-color: rgb(44, 34, 34);
+  width: 85%;
+  height: 85%;
+  border-radius: 30px;
+}
+
+.container .musicLeft {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: absolute;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  background-color: black;
+  border-radius: 30px;
+}
+
+.musicLeft .logo {
+  position: absolute;
+  border-radius: 30px 0px 0px 0px;
+  width: 100%;
+  height: 10%;
+  background-color: yellowgreen;
+  top: 0;
+}
+
+.musicLeft .menu {
+  position: absolute;
+  width: 100%;
+  top: 20%;
+  height: 30%;
+  background-color: green;
+}
+
+
+.musicLeft .fav {
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  bottom: 30%;
+  background-color: blue;
+}
+
+.musicLeft .playlist {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 25%;
+  background-color: yellow;
+  border-radius: 0px 0px 0px 30px;
+
+}
+
+.iconName {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  margin: 10%;
+  align-content: center;
+}
+
+.container .musicRight {
+  position: absolute;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  border-radius: 0px 30px 30px 0px;
+  background-color: rgba(0, 0, 255, 0.165);
+}
+
+.headder {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  height: 15%;
+  /* background-color: brown; */
+}
+
+.headder .searchs {
+  width: 60%;
+  background-color: wheat;
+  height: 100%;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+}
+
+.searchs .songSearch {
+  width: 30%;
+  left: 5%;
+  height: 30%;
+  position: absolute;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.headder .profile {
+  right: 0;
+  border-radius: 0px 30px 0 0;
+  background-color: violet;
+  height: 100%;
+  width: 40%;
+}
+
+.profile .profiles {
+  position: absolute;
+  width: 20%;
+  height: 50%;
+  top: 25%;
+  right: 5%;
+  border-radius: 50px;
+  background-color: rgb(46, 65, 83);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.profiles .image {
+  position: absolute;
+  width: 23%;
+  left: 2%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.musicRight .recentPlay {
+  position: relative;
+  width: 100%;
+  height: 40%;
+  background-color: springgreen;
+}
+
+.musicRight .trandings {
+  background-color: sandybrown;
+  width: 50%;
+  height: 30%;
+  left: 0;
+  position: absolute;
+}
+
+.musicRight .topPlaylist {
+  width: 50%;
+  height: 30%;
+  position: absolute;
+  right: 0;
+  background-color: salmon;
+}
+
+.musicRight .bottomPlayList {
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  background-color: orange;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0 0 30px 0;
+
+  flex-direction: column;
+}
+
+.bottomPlayList .currentPlay {
+  width: 25%;
+  height: 100%;
+  background-color: pink;
+}
+
+.bottomPlayList .currentControls {
+  width: 30%;
+  height: 100%;
+  background-color: royalblue;
+  position: absolute;
+  left: 35%;
+}
+
+.bottomPlayList .volume {
+  position: absolute;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background-color: papayawhip;
+  border-radius: 0 0 30px 0;
+}
+
+.albumImage {
+  width: 300px;
+  height: 300px;
+}

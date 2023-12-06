@@ -5,7 +5,8 @@ import About from "../../Component/About/About";
 import { useZoom } from "../Zoom/ZoomContext";
 import Resume from "../../Component/Resume/Resume";
 import Portfolio from "../../Component/Portfolio/Portfolio";
-import TodoList from "../../Component/Portfolio/Project/TodoList/TodoList";
+import TodoList from "../../Component/Project/TodoList/TodoList";
+import Music from "../../Component/Project/music/music";
 
 
 const NavRight = () => {
@@ -19,7 +20,8 @@ const NavRight = () => {
         <Route path="/About" element={<About />} />
         <Route path="/Resume" element={<Resume />} />
         <Route path="/Portfolio/*" element={<Portfolio />} />
-        <Route path="/todolist" element={<TodoList />} /> {/* Add this line */}
+        <Route path="/todolist" element={<TodoList/>} />
+        <Route path="/music" element={<Music/>} />
       </Routes>
     </div>
   );

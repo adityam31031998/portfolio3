@@ -264,9 +264,7 @@
 
 	.typed-cursor {
 		opacity: 1;
-
 		user-select: none;
-
 		-webkit-animation: blink 0.7s infinite;
 		-moz-animation: blink 0.7s infinite;
 		animation: blink 0.7s infinite;
