@@ -5,3 +5,7 @@ let state[value], updater[function]]=useState(value)
             |______________|____________________|
                            |updater function(new value)
 note:All the hooks must be imported at the top level before use
+
+
+props is used to transper the data from parent to child componenct
+the data is tranfered by initiaing to attribute, data cannot be pass from child componenct to parent componenct 
