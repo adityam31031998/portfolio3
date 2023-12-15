@@ -50,25 +50,20 @@ const fetchAlbumData = async (accessToken, setAlbum) => {
 const searchUrlCollect = async (userSearch, accessToken, setSearchResults) => {
 
   try {
-    // function currentToken(accessstoken) {
-    //   // console.log("dhhh", accessstoken);
-    //   return accessstoken;
-    // }
-    
-    var fff=accessToken
-    const searchHeader = CreatedMusicAuth(fff);
-    console.log(typeof accessToken,"hhhhhhhhhhh");
-    console.log( accessToken,"ggggggg");
-    if (accessToken) {
-      
-      console.log("accessToken11",accessToken);
+    if (accessToken && userSearch.trim() !== "") { 
+      const searchHeader = CreatedMusicAuth(accessToken);
+      const searchUrl = `${searchApi}/search?q=${userSearch}&type=album`;
+      const response = await axios.get(searchUrl, searchHeader);
+      if (setSearchResults) {
+        setSearchResults(response.data);
+      }
     }
-    var searchUrl = `${searchApi}/search?q=${userSearch}&type=album`;
-    console.log(searchUrl);
-    const response = await axios.get(searchUrl, searchHeader);
-    console.log(response.data);
   } catch (error) {
     console.error("Error collecting search URL:", error.message);
+    if (error.response) {
+      console.error("Response:", error.response.data);
+    }
   }
 };
+
 export { generateToken, fetchAlbumData, searchUrlCollect };

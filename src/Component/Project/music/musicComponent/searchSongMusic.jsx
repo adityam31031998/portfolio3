@@ -1,16 +1,14 @@
+//SearchSongMusic.jsx
 import React, { useEffect, useState } from "react";
 import styles from "../music.module.css";
 import { searchUrlCollect } from "../musicApi";
-// import { searchSong } from "../musicApi";
-
-const SearchSongMusic = () => {
-  const [searchData, setSearchData] = useState("danush");
+const SearchSongMusic = ({ accessToken }) => {
+  const [searchData, setSearchData] = useState("");
   var [searchResults, setSearchResults] = useState([]);
   const [searchToggle, setSearchToggle] = useState(false);
   const [isEmptySearch, setIsEmptySearch] = useState(false);
 
   const searchArray = Object.entries(searchResults);
-  var setSearchResultsData = "";
   const handleInputChange = (e) => {
     const userSearch = e.target.value;
     if (userSearch === "") {
@@ -21,15 +19,16 @@ const SearchSongMusic = () => {
       setSearchData(userSearch);
       setIsEmptySearch(false);
       setSearchToggle(true);
-      searchUrlCollect(searchData, setSearchResultsData);
-      setSearchResults(setSearchResultsData);
     }
   };
   useEffect(() => {
     if (searchData !== "") {
-      searchUrlCollect(searchData);
+      const fetchData = async () => {
+        await searchUrlCollect(searchData, accessToken, setSearchResults);
+      };
+      fetchData();
     }
-  }, [searchData]);
+  }, [searchData, accessToken]);
 
   function handleSearchResult() {
     return searchArray.map((items, index) => (

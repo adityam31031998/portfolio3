@@ -1,3 +1,4 @@
+//music.jsx
 import React, { useEffect, useState } from "react";
 import styles from "./music.module.css";
 import { RecentPlay } from "./musicComponent/recentPlay";
@@ -22,7 +23,6 @@ const Music = () => {
       generateToken(setAccessToken);
     } else {
       fetchAlbumData(accessToken, setAlbum);
-      console.log("accessstoken",accessToken);
       searchUrlCollect("",accessToken);
     }
   }, [accessToken]);
@@ -37,7 +37,7 @@ const Music = () => {
           <PlaylistMusic />
         </div>
         <div className={styles.musicRight}>
-          <SearchSongMusic  />
+        <SearchSongMusic accessToken={accessToken} />
           {/* <Apple/> */}
           {RecentPlay()}
           {TreandingMusic()}
