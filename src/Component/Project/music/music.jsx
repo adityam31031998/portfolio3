@@ -2,18 +2,19 @@ import React, { useEffect, useState } from "react";
 import styles from "./music.module.css";
 import { RecentPlay } from "./musicComponent/recentPlay";
 import { MenuMusic } from "./musicComponent/menuMusic";
-import { generateToken, fetchAlbumData,searchSong } from "./musicApi";
+import { generateToken, fetchAlbumData,searchUrlCollect } from "./musicApi";
 import { PlaylistMusic } from "./musicComponent/playlistMusic";
-import { SearchSongMusic } from "./musicComponent/searchSongMusic";
+import  {SearchSongMusic}  from "./musicComponent/searchSongMusic";
 import { TopPlaylistMusic } from "./musicComponent/topPlaylistMusic";
 import { TreandingMusic } from "./musicComponent/treandingMusic";
 import { FavMusic } from "./musicComponent/favMusic";
 import { ControlsMusic } from "./musicComponent/controlsMusic";
+
 // import Apple from "./musicComponent/Apple";
 const Music = () => {
-  const [accessToken, setAccessToken] = useState();
+  var [accessToken, setAccessToken] = useState();
   const [album, setAlbum] = useState([]);
-  const [searchs, setSearchs] = useState([]);
+  // const [searchs, setSearchs] = useState([]);
 
   
   useEffect(() => {
@@ -21,7 +22,8 @@ const Music = () => {
       generateToken(setAccessToken);
     } else {
       fetchAlbumData(accessToken, setAlbum);
-      searchSong(accessToken, setSearchs);
+      console.log("accessstoken",accessToken);
+      searchUrlCollect("",accessToken);
     }
   }, [accessToken]);
 
@@ -35,7 +37,7 @@ const Music = () => {
           <PlaylistMusic />
         </div>
         <div className={styles.musicRight}>
-          <SearchSongMusic searchs={searchs} />
+          <SearchSongMusic  />
           {/* <Apple/> */}
           {RecentPlay()}
           {TreandingMusic()}
@@ -48,5 +50,4 @@ const Music = () => {
     </div>
   );
 };
-
 export default Music;

@@ -1,34 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../music.module.css";
-import { searchSong, generateToken } from "../musicApi";
+import { searchUrlCollect } from "../musicApi";
+// import { searchSong } from "../musicApi";
 
-const SearchSongMusic = ({ searchs }) => {
+const SearchSongMusic = () => {
   const [searchData, setSearchData] = useState("danush");
-  const [searchResults, setSearchResults] = useState([]);
+  var [searchResults, setSearchResults] = useState([]);
   const [searchToggle, setSearchToggle] = useState(false);
   const [isEmptySearch, setIsEmptySearch] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const tokenResponse = await generateToken();
-        const accessToken = tokenResponse.access_token;
-        console.log(accessToken);
-        const searchUrl = `https://api.spotify.com/v1/search?q=${searchData}&type=album`;
-        await searchSong(accessToken, searchUrl, setSearchResults);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, [searchData]);
-
   const searchArray = Object.entries(searchResults);
-
+  var setSearchResultsData = "";
   const handleInputChange = (e) => {
     const userSearch = e.target.value;
-
     if (userSearch === "") {
       setIsEmptySearch(true);
       setSearchData("");
@@ -37,10 +21,17 @@ const SearchSongMusic = ({ searchs }) => {
       setSearchData(userSearch);
       setIsEmptySearch(false);
       setSearchToggle(true);
+      searchUrlCollect(searchData, setSearchResultsData);
+      setSearchResults(setSearchResultsData);
     }
   };
+  useEffect(() => {
+    if (searchData !== "") {
+      searchUrlCollect(searchData);
+    }
+  }, [searchData]);
+
   function handleSearchResult() {
-    // var aaaa=""
     return searchArray.map((items, index) => (
       <div className={styles.gridLeft} key={index}>
         {items[1].items.map((itm, inddx) => (
@@ -50,18 +41,14 @@ const SearchSongMusic = ({ searchs }) => {
               className={styles.searchImages}
               src={itm?.images[0]?.url}
               alt=""
-              />
-             
+            />
           </div>
         ))}
       </div>
     ));
   }
   function handleSongPlay(seleteddd) {
-
-    console.log("dd",seleteddd.href);
-    // const movie = searchArray.filter((m) => m.url !== seleteddd.url);
-    // setSelected(movie);
+    return seleteddd;
   }
   return (
     <div className={styles.headder}>

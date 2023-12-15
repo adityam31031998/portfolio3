@@ -1,7 +1,6 @@
 // musicApi.jsx
 import axios from "axios";
-import { albumPoint, CLIENT_ID, CLIENT_SECRET } from "./musicUrl";
-
+import { albumPoint, CLIENT_ID, CLIENT_SECRET, searchApi } from "./musicUrl";
 function CreatedMusicAuth(accessToken) {
   return {
     headers: {
@@ -11,7 +10,7 @@ function CreatedMusicAuth(accessToken) {
   };
 }
 
-async function generateToken() {
+async function generateToken(setAccessToken) {
   try {
     const authParameters = {
       method: "POST",
@@ -21,12 +20,15 @@ async function generateToken() {
       body: `grant_type=client_credentials&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`,
     };
 
-    const response = await fetch("https://accounts.spotify.com/api/token", authParameters);
+    const response = await fetch(
+      "https://accounts.spotify.com/api/token",
+      authParameters
+    );
     const data = await response.json();
-
+    setAccessToken(data.access_token);
     return data;
   } catch (error) {
-    console.error("Error generating token:", error);
+    console.error("Error generating token:", error.message);
     throw error;
   }
 }
@@ -44,18 +46,29 @@ const fetchAlbumData = async (accessToken, setAlbum) => {
   }
 };
 
-const searchSong = async (accessToken, searchUrl, setSearchs) => {
+
+const searchUrlCollect = async (userSearch, accessToken, setSearchResults) => {
+
   try {
-    const authHeader = CreatedMusicAuth(accessToken);
-    const response = await axios.get(searchUrl, authHeader);
-    setSearchs(response.data);
-    // console.log(response.data.albums.items);
+    // function currentToken(accessstoken) {
+    //   // console.log("dhhh", accessstoken);
+    //   return accessstoken;
+    // }
+    
+    var fff=accessToken
+    const searchHeader = CreatedMusicAuth(fff);
+    console.log(typeof accessToken,"hhhhhhhhhhh");
+    console.log( accessToken,"ggggggg");
+    if (accessToken) {
+      
+      console.log("accessToken11",accessToken);
+    }
+    var searchUrl = `${searchApi}/search?q=${userSearch}&type=album`;
+    console.log(searchUrl);
+    const response = await axios.get(searchUrl, searchHeader);
+    console.log(response.data);
   } catch (error) {
-    console.error(
-      "Error searching for songs:",
-      error.response ? error.response.data : error.message
-    );
+    console.error("Error collecting search URL:", error.message);
   }
 };
-
-export { generateToken, fetchAlbumData, searchSong };
+export { generateToken, fetchAlbumData, searchUrlCollect };
