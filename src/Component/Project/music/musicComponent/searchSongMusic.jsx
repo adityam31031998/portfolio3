@@ -7,7 +7,8 @@ const SearchSongMusic = ({ accessToken }) => {
   var [searchResults, setSearchResults] = useState([]);
   const [searchToggle, setSearchToggle] = useState(false);
   const [isEmptySearch, setIsEmptySearch] = useState(false);
-
+  var [searchSelectdApi, setSearchSelectedApi] = useState("");
+  var [selectCurentSong,setSelectCurentSong] =useState("")
   const searchArray = Object.entries(searchResults);
   const handleInputChange = (e) => {
     const userSearch = e.target.value;
@@ -21,22 +22,34 @@ const SearchSongMusic = ({ accessToken }) => {
       setSearchToggle(true);
     }
   };
+
+  // function handleSongPlay(seleteddd) {
+  //   setSearchSelectedApi(seleteddd);
+  //   return seleteddd;
+  // }
+
   useEffect(() => {
     if (searchData !== "") {
       const fetchData = async () => {
-        await searchUrlCollect(searchData, accessToken, setSearchResults);
+        await searchUrlCollect(
+          searchData,
+          accessToken,
+          setSearchResults,
+          searchSelectdApi,
+          setSelectCurentSong
+        );
+        console.log(accessToken);
       };
       fetchData();
     }
-  }, [searchData, accessToken]);
-
+  }, [searchData, accessToken, searchSelectdApi]);
   function handleSearchResult() {
     return searchArray.map((items, index) => (
       <div className={styles.gridLeft} key={index}>
         {items[1].items.map((itm, inddx) => (
           <div className={styles.gridColumn} key={itm.inddx}>
             <img
-              onClick={() => handleSongPlay(itm)}
+              onClick={() => setSearchSelectedApi(itm)}
               className={styles.searchImages}
               src={itm?.images[0]?.url}
               alt=""
@@ -46,9 +59,7 @@ const SearchSongMusic = ({ accessToken }) => {
       </div>
     ));
   }
-  function handleSongPlay(seleteddd) {
-    return seleteddd;
-  }
+
   return (
     <div className={styles.headder}>
       <div className={styles.searchs}>
@@ -75,6 +86,8 @@ const SearchSongMusic = ({ accessToken }) => {
               {handleSearchResult()}
               <div className={styles.gridRight}>
                 <div className={styles.gridRightBottom}>
+                  <audio controls src={selectCurentSong} ></audio>
+                  {/* {selectCurentSong} */}
                   {/* {console.log(selected)} */}
                 </div>
               </div>

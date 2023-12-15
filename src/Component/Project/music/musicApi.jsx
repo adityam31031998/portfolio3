@@ -46,17 +46,24 @@ const fetchAlbumData = async (accessToken, setAlbum) => {
   }
 };
 
-
-const searchUrlCollect = async (userSearch, accessToken, setSearchResults) => {
-
+const searchUrlCollect = async (
+  userSearch,
+  accessToken,
+  setSearchResults,
+  searchSelectdApi,
+  setSelectCurentSong
+) => {
   try {
-    if (accessToken && userSearch.trim() !== "") { 
+    if (accessToken && userSearch.trim() !== "") {
       const searchHeader = CreatedMusicAuth(accessToken);
       const searchUrl = `${searchApi}/search?q=${userSearch}&type=album`;
       const response = await axios.get(searchUrl, searchHeader);
       if (setSearchResults) {
         setSearchResults(response.data);
       }
+      var ress = searchSelectdApi.href;
+      var serachSelectedSongApi = await axios.get(ress, searchHeader);
+      setSelectCurentSong(serachSelectedSongApi.data.tracks.items[0].preview_url);
     }
   } catch (error) {
     console.error("Error collecting search URL:", error.message);
