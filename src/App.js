@@ -25,7 +25,7 @@ const App = () => {
 
     <BrowserRouter>
       <ZoomProvider>
-        <div className="mouser">
+        <div >
 
         <div className={`body1 ${sidebarActive ? "sidebar-active" : ""}`} >
           <div id="sidebar" className={sidebarActive ? "active" : ""}>

@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0px;
   user-select: none;
-  cursor: url(cos12.png),auto;
+  /* cursor: url(cos12.png),auto; */
 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   user-drag: none; /* Standard syntax */
