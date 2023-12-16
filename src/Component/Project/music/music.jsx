@@ -24,6 +24,7 @@ const Music = () => {
     } else {
       fetchAlbumData(accessToken, setAlbum);
       searchUrlCollect("",accessToken);
+      console.log(accessToken);
     }
   }, [accessToken]);
 

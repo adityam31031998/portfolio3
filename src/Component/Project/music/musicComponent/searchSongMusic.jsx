@@ -8,7 +8,7 @@ const SearchSongMusic = ({ accessToken }) => {
   const [searchToggle, setSearchToggle] = useState(false);
   const [isEmptySearch, setIsEmptySearch] = useState(false);
   var [searchSelectdApi, setSearchSelectedApi] = useState("");
-  var [selectCurentSong,setSelectCurentSong] =useState("")
+  var [selectCurentSong, setSelectCurentSong] = useState("");
   const searchArray = Object.entries(searchResults);
   const handleInputChange = (e) => {
     const userSearch = e.target.value;
@@ -46,6 +46,7 @@ const SearchSongMusic = ({ accessToken }) => {
   function handleSearchResult() {
     return searchArray.map((items, index) => (
       <div className={styles.gridLeft} key={index}>
+        {console.log(items)}
         {items[1].items.map((itm, inddx) => (
           <div className={styles.gridColumn} key={itm.inddx}>
             <img
@@ -86,9 +87,23 @@ const SearchSongMusic = ({ accessToken }) => {
               {handleSearchResult()}
               <div className={styles.gridRight}>
                 <div className={styles.gridRightBottom}>
-                  <audio controls src={selectCurentSong} ></audio>
-                  {/* {selectCurentSong} */}
-                  {/* {console.log(selected)} */}
+                  {/* {searchArray.map((items, index) => (
+                    <div key={index}>{console.log(items[1].items[0].images[0].url)}</div>
+                  ))} */}
+
+                  <div className={styles.currentImages}>
+                    <img
+                      src={searchSelectdApi.images[0].url}
+                      className={styles.currentImage}
+                      alt=""
+                    />
+                  </div>
+                  <div className={styles.currentText}>
+                    <span>{searchSelectdApi.name}</span>
+                  </div>
+                  <div  className={styles.currentAudio}>
+                  <audio controls src={selectCurentSong}></audio>
+                </div>
                 </div>
               </div>
             </div>

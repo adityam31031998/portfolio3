@@ -223,8 +223,12 @@
 .gridRightBottom {
   background-color: rgba(0, 255, 128, 0.366);
   width: 100%;
-  height: 20%;
+  height: 30%;
   bottom: 0;
+  display: flex;
+  /* align-items: center; */
+  align-content: center;
+  justify-content: center;
   position: absolute;
   overflow: hidden;
 }
@@ -263,8 +267,6 @@
 }
 
 
-
-
 .musicRight .trandings {
   background-color: sandybrown;
   width: 50%;
@@ -301,6 +303,53 @@
   background-color: rgb(103, 72, 77);
 }
 
+.currentImage {
+  box-shadow: 0px 0px 5px 1px black;
+  height: 100%;
+  border-radius: 100px;
+  animation: imagess 10s ease-in-out infinite;
+}
+
+.currentImages {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.currentText {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  font-size: 1.3rem;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  color: black;
+}
+
+.currentAudio {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 50%;
+  background-color: tomato;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
 .bottomPlayList .currentControls {
   width: 30%;
   height: 100%;
@@ -321,4 +370,18 @@
 .albumImage {
   width: 300px;
   height: 300px;
+}
+
+@keyframes imagess {
+  0% {
+    transform: rotate(0), delay 1s;
+  }
+
+  50% {
+    transform: rotate(120deg), delay 1s;
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

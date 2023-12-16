@@ -63,6 +63,7 @@ const searchUrlCollect = async (
       }
       var ress = searchSelectdApi.href;
       var serachSelectedSongApi = await axios.get(ress, searchHeader);
+      console.log(serachSelectedSongApi.data.tracks.items[0]);
       setSelectCurentSong(serachSelectedSongApi.data.tracks.items[0].preview_url);
     }
   } catch (error) {
