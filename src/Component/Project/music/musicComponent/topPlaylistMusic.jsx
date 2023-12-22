@@ -31,4 +31,4 @@ function TopPlaylistMusic(album) {
   );
 }
 
-export {TopPlaylistMusic}
+export { TopPlaylistMusic };

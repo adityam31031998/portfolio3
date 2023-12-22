@@ -1,6 +1,12 @@
 // musicApi.jsx
 import axios from "axios";
-import { albumPoint, CLIENT_ID, CLIENT_SECRET, searchApi } from "./musicUrl";
+import {
+  albumPoint,
+  CLIENT_ID,
+  CLIENT_SECRET,
+  searchApi,
+  categoriesApi
+} from "./musicUrl";
 function CreatedMusicAuth(accessToken) {
   return {
     headers: {
@@ -63,8 +69,10 @@ const searchUrlCollect = async (
       }
       var ress = searchSelectdApi.href;
       var serachSelectedSongApi = await axios.get(ress, searchHeader);
-      console.log(serachSelectedSongApi.data.tracks.items[0]);
-      setSelectCurentSong(serachSelectedSongApi.data.tracks.items[0].preview_url);
+      // console.log(serachSelectedSongApi.data.tracks.items[0]);
+      setSelectCurentSong(
+        serachSelectedSongApi.data.tracks.items[0].preview_url
+      );
     }
   } catch (error) {
     console.error("Error collecting search URL:", error.message);
@@ -73,5 +81,17 @@ const searchUrlCollect = async (
     }
   }
 };
+const categoriesMusic = async (accessToken,setCategoryResponse) => {
+  try {
+    const categoryHeader = CreatedMusicAuth(accessToken);
 
-export { generateToken, fetchAlbumData, searchUrlCollect };
+    const categoryResponse = await axios.get(categoriesApi, categoryHeader);
+    if(categoryResponse.data){
+      setCategoryResponse(categoryResponse.data)
+    }
+  } catch (error) {
+    console.error("Error fetching audiobook:", error.message);
+  }
+};
+
+export { generateToken, fetchAlbumData, searchUrlCollect, categoriesMusic };

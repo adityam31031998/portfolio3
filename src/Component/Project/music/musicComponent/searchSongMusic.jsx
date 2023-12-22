@@ -1,4 +1,3 @@
-//SearchSongMusic.jsx
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../music.module.css";
 import { searchUrlCollect } from "../musicApi";
@@ -6,8 +5,13 @@ import { BsArrowLeftShort } from "react-icons/bs";
 import { BsArrowRightShort } from "react-icons/bs";
 import { FaPlay } from "react-icons/fa";
 import { FaPause } from "react-icons/fa";
+// import TmpRecentPlay from "./tmpRecentPlay";
+import { useMusicContext } from "./MusicContext"; // Added import
+
 const SearchSongMusic = ({ accessToken }) => {
-  const audioPlayer=useRef()
+  const { setSearchedApi } = useMusicContext(); // Added context
+
+  const audioPlayer = useRef();
   const [isplaying, setIsPlaying] = useState(true);
   const [searchData, setSearchData] = useState("");
   var [searchResults, setSearchResults] = useState([]);
@@ -16,6 +20,7 @@ const SearchSongMusic = ({ accessToken }) => {
   var [searchSelectdApi, setSearchSelectedApi] = useState("");
   var [selectCurentSong, setSelectCurentSong] = useState("");
   const searchArray = Object.entries(searchResults);
+
   const handleInputChange = (e) => {
     const userSearch = e.target.value;
     if (userSearch === "") {
@@ -28,11 +33,6 @@ const SearchSongMusic = ({ accessToken }) => {
       setSearchToggle(true);
     }
   };
-
-  // function handleSongPlay(seleteddd) {
-  //   setSearchSelectedApi(seleteddd);
-  //   return seleteddd;
-  // }
 
   useEffect(() => {
     if (searchData !== "") {
@@ -49,23 +49,26 @@ const SearchSongMusic = ({ accessToken }) => {
       fetchData();
     }
   }, [searchData, accessToken, searchSelectdApi]);
-  function handleControlss(){
-    // var preValuess=isplaying
-    setIsPlaying(!isplaying)
-    if(isplaying){
-      audioPlayer.current.play()
-    }else{
-      audioPlayer.current.pause()
+
+  function handleControlss() {
+    setIsPlaying(!isplaying);
+    if (isplaying) {
+      audioPlayer.current.play();
+    } else {
+      audioPlayer.current.pause();
     }
   }
+
   function handleSearchResult() {
     return searchArray.map((items, index) => (
       <div className={styles.gridLeft} key={index}>
-        {console.log(items)}
         {items[1].items.map((itm, inddx) => (
-          <div className={styles.gridColumn} key={itm.inddx}>
+          <div className={styles.gridColumn} key={inddx}>
             <img
-              onClick={() => setSearchSelectedApi(itm)}
+              onClick={() => {
+                setSearchSelectedApi(itm);
+                setSearchedApi(itm); // Set context state here
+              }}
               className={styles.searchImages}
               src={itm?.images[0]?.url}
               alt=""
@@ -81,15 +84,20 @@ const SearchSongMusic = ({ accessToken }) => {
       <div className={styles.searchs}>
         <input
           className={styles.songSearch}
-          placeholder="Search"
+          placeholder="Search For Songs"
           type="search"
           value={searchData}
           onChange={handleInputChange}
         />
+        <img src="./search.png" className={styles.searchIcon}alt="" />
       </div>
       <div className={styles.profile}>
         <span className={styles.profiles}>
-          <img src="./profile/profile.jpg" className={styles.image} alt="" />
+          <img
+            src="./profile/profile.jpg"
+            className={styles.image}
+            alt=""
+          />
           <span>Yalnee</span>
         </span>
       </div>
@@ -102,9 +110,6 @@ const SearchSongMusic = ({ accessToken }) => {
               {handleSearchResult()}
               <div className={styles.gridRight}>
                 <div className={styles.gridRightBottom}>
-                  {/* {searchArray.map((items, index) => (
-                    <div key={index}>{console.log(items[1].items[0].images[0].url)}</div>
-                  ))} */}
                   <div className={styles.currentImages}>
                     {searchSelectdApi &&
                       searchSelectdApi.images &&
@@ -120,8 +125,8 @@ const SearchSongMusic = ({ accessToken }) => {
                     <span>{searchSelectdApi.name}</span>
                   </div>
                   <div className={styles.currentAudio}>
-                    <audio ref={audioPlayer}
-                   
+                    <audio
+                      ref={audioPlayer}
                       src={selectCurentSong}
                       preload="metadata"
                     ></audio>
@@ -129,7 +134,7 @@ const SearchSongMusic = ({ accessToken }) => {
                       back <BsArrowLeftShort />
                     </button>
                     <button onClick={handleControlss}>
-                      {isplaying ?<FaPlay /> : <FaPause /> }
+                      {isplaying ? <FaPlay /> : <FaPause />}
                     </button>
                     <button>forword <BsArrowRightShort /></button>
                     <div>00:00</div>

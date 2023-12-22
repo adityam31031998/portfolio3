@@ -1,27 +1,26 @@
 import React from "react";
 import styles from "../music.module.css";
- const MenuMusic = () => {
+const MenuMusic = () => {
   return (
     <div className={styles.menu}>
       <p className={styles.iconName}>
-        {/* <img src="./home.png" width={"50px"} alt="loading"></img> */}
-
+        <img src="./home3.png" className={styles.menuIcon} alt="" />
         <span>Home</span>
       </p>
       <p className={styles.iconName}>
-        {/* <img src="./home.png" width={"50px"} alt="loading"></img> */}
-        <span>Home</span>
+        <img src="./generic2.png" className={styles.menuIcon} alt="" />{" "}
+        <span>Generic</span>
       </p>
       <p className={styles.iconName}>
-        {/* <img src="./home.png" width={"50px"} alt="loading"></img> */}
-        <span>Home</span>
+        <img src="./artist.png" className={styles.menuIcon} alt="" />{" "}
+        <span>Artists</span>
       </p>
       <p className={styles.iconName}>
-        {/* <img src="./home.png" width={"50px"} alt="loading"></img> */}
-        <span>Home</span>
+        <img src="./musicTrack.png" className={styles.menuIcon} alt="" />{" "}
+        <span>Ablums</span>
       </p>
     </div>
   );
 };
 
-export {MenuMusic}
+export { MenuMusic };

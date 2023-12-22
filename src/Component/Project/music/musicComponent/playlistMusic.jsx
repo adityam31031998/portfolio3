@@ -1,23 +1,20 @@
 import React from "react";
 import styles from "../music.module.css";
-function PlaylistMusic() {
-return(
-
+function PlaylistMusic({ categoryResponse }) {
+  return (
     <div className={styles.playlist}>
-      <p className={styles.iconName}>
+      {/* <s className={styles.iconName}> */}
         {/* <img src="./home.png" width={"50px"} alt="loading"></img> */}
-        <span>ssss</span>
-      </p>
-      <p className={styles.iconName}>
-        {/* <img src="./home.png" width={"50px"} alt="loading"></img> */}
-        <span>Home</span>
-      </p>
-      <p className={styles.iconName}>
-        {/* <img src="./home.png" width={"50px"} alt="loading"></img> */}
-        <span>Home</span>
-      </p>
-    </div>
+        {/* </p> */}
+        <span className={styles.catsubTitle}>Categories</span>
+        <div className={styles.catList}>
 
-)
+        {console.log(categoryResponse)}
+        {categoryResponse?.categories?.items.map((item, index) => (
+          <span key={index} className={styles.catSubPara}><img className={styles.catImaes} src={item?.icons[0]?.url} alt="" />{item.name}</span>
+          ))}
+          </div>
+    </div>
+  );
 }
-export {PlaylistMusic}
+export { PlaylistMusic };

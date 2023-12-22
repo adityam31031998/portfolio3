@@ -5,8 +5,7 @@ function FavMusic(){
     return (
         <div className={styles.fav}>
     <p className={styles.iconName}>
-      <span>Home</span>
-      <span>Homs</span>
+      <span>Favourites</span>
     </p>
   </div>
 );

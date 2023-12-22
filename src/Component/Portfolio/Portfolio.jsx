@@ -14,7 +14,7 @@ import Music from "../Project/music/music";
 const Portfolio = () => {
   const imagesData = [
     { id: 1, src: "./home1.png", title: "Todolist", links: "/todolist" },
-    { id: 2, src: "./home2.png", title: "Music", links: "/music" },
+    { id: 2, src: "./spotify1.png", title: "Music", links: "/music" },
     { id: 3, src: "./home1.png", title: "Image 1", links: "/Wet" },
     { id: 4, src: "./home2.png", title: "Image 1", links: "/Movies" },
     // Add more image data as needed
