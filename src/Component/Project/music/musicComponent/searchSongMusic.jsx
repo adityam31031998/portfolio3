@@ -7,7 +7,8 @@ import { FaPlay } from "react-icons/fa";
 import { FaPause } from "react-icons/fa";
 // import TmpRecentPlay from "./tmpRecentPlay";
 import { useMusicContext } from "./MusicContext"; // Added import
-
+import searchImg from "./music/search.png"
+import profileImg from "./music/profile.jpg"
 const SearchSongMusic = ({ accessToken }) => {
   const { setSearchedApi } = useMusicContext(); // Added context
 
@@ -89,12 +90,12 @@ const SearchSongMusic = ({ accessToken }) => {
           value={searchData}
           onChange={handleInputChange}
         />
-        <img src="./search.png" className={styles.searchIcon}alt="" />
+        <img src={searchImg} className={styles.searchIcon}alt="" />
       </div>
       <div className={styles.profile}>
         <span className={styles.profiles}>
           <img
-            src="./profile/profile.jpg"
+            src={profileImg}
             className={styles.image}
             alt=""
           />

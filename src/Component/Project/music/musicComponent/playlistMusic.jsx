@@ -8,8 +8,6 @@ function PlaylistMusic({ categoryResponse }) {
         {/* </p> */}
         <span className={styles.catsubTitle}>Categories</span>
         <div className={styles.catList}>
-
-        {console.log(categoryResponse)}
         {categoryResponse?.categories?.items.map((item, index) => (
           <span key={index} className={styles.catSubPara}><img className={styles.catImaes} src={item?.icons[0]?.url} alt="" />{item.name}</span>
           ))}

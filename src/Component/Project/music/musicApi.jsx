@@ -5,7 +5,8 @@ import {
   CLIENT_ID,
   CLIENT_SECRET,
   searchApi,
-  categoriesApi
+  categoriesApi,
+  artistAlbumApi,
 } from "./musicUrl";
 function CreatedMusicAuth(accessToken) {
   return {
@@ -81,17 +82,35 @@ const searchUrlCollect = async (
     }
   }
 };
-const categoriesMusic = async (accessToken,setCategoryResponse) => {
+const categoriesMusic = async (accessToken, setCategoryResponse) => {
   try {
     const categoryHeader = CreatedMusicAuth(accessToken);
 
     const categoryResponse = await axios.get(categoriesApi, categoryHeader);
-    if(categoryResponse.data){
-      setCategoryResponse(categoryResponse.data)
+    if (categoryResponse.data) {
+      setCategoryResponse(categoryResponse.data);
     }
   } catch (error) {
     console.error("Error fetching audiobook:", error.message);
   }
 };
 
-export { generateToken, fetchAlbumData, searchUrlCollect, categoriesMusic };
+const artistAlbumFetch = async (accessToken,setArtist) => {
+  try {
+    const artistHearder = CreatedMusicAuth(accessToken);
+    const artistResponse = await axios.get(artistAlbumApi, artistHearder);
+    if (artistResponse.data) {
+      setArtist(artistResponse.data)
+    }
+  } catch (error) {
+    console.log("Error message :", error.message);
+  }
+};
+
+export {
+  generateToken,
+  fetchAlbumData,
+  searchUrlCollect,
+  categoriesMusic,
+  artistAlbumFetch,
+};

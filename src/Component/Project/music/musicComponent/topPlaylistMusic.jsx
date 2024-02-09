@@ -9,7 +9,10 @@ function TopPlaylistMusic(album) {
     ))} */}
 
       {album?.tracks?.items[0].preview_url && (
-        <audio src={album.tracks.items[0].preview_url} controls></audio>
+        <>
+          <img src="" alt="" />
+          <audio src={album.tracks.items[0].preview_url} controls></audio>
+        </>
         // <img
         //   className={styles.albumImage}
         //   src={album.tracks[0].url}
@@ -22,7 +25,6 @@ function TopPlaylistMusic(album) {
 
         {album?.tracks?.items.map((item, index) => (
           <span key={index}>
-            {" "}
             <audio controls src={item.preview_url}></audio>
           </span>
         ))}

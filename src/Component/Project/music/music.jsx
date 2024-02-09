@@ -4,18 +4,21 @@ import React, { useEffect, useState } from "react";
 import styles from "./music.module.css";
 import { RecentPlay } from "./musicComponent/recentPlay";
 import { MenuMusic } from "./musicComponent/menuMusic";
-import { generateToken, fetchAlbumData, searchUrlCollect, categoriesMusic } from "./musicApi";
+import { generateToken, fetchAlbumData, searchUrlCollect, categoriesMusic, artistAlbumFetch } from "./musicApi";
 import { PlaylistMusic } from "./musicComponent/playlistMusic";
 import { SearchSongMusic } from "./musicComponent/searchSongMusic";
 import { TopPlaylistMusic } from "./musicComponent/topPlaylistMusic";
 import { TreandingMusic } from "./musicComponent/treandingMusic";
-import { FavMusic } from "./musicComponent/favMusic";
+// import { FavMusic } from "./musicComponent/favMusic";
 import { ControlsMusic } from "./musicComponent/controlsMusic";
 import { MusicProvider } from "./musicComponent/MusicContext";
+
 
 const Music = (searchSelectdApi) => {
   var [accessToken, setAccessToken] = useState();
   const [album, setAlbum] = useState([]);
+  const [artist, setArtist] = useState([]);
+  
   const [categoryResponse, setCategoryResponse] = useState([]);
   const [leftSideVisible, setLeftSideVisible] = useState(true);
 
@@ -26,6 +29,7 @@ const Music = (searchSelectdApi) => {
       fetchAlbumData(accessToken, setAlbum);
       searchUrlCollect("", accessToken);
       categoriesMusic(accessToken,setCategoryResponse)
+      artistAlbumFetch(accessToken,setArtist)
       console.log(accessToken);
     }
   }, [accessToken]);
@@ -62,7 +66,7 @@ const Music = (searchSelectdApi) => {
             <SearchSongMusic accessToken={accessToken} />
             <RecentPlay />
           </MusicProvider>
-          {TreandingMusic()}
+          {TreandingMusic(artist)}
           {TopPlaylistMusic(album)}
           <div className={styles.bottomPlayList}>{ControlsMusic()}</div>
         </div>

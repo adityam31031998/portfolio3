@@ -6,8 +6,11 @@ import NavLeft from "./Assets/NavLeft/NavLeft";
 import NavRight from "./Assets/NavRight/NavRight";
 import { ZoomProvider } from "./Assets/Zoom/ZoomContext";
 import { NavLeftFotter } from "./Assets/NavLeftFotter/NavLeftFotter";
-
-
+import homeIcon from "./Assets/icons/home4.png"
+import aboutIcon from "./Assets/icons/aboutus1.png"
+import resumeIcon from "./Assets/icons/resume.png"
+import portfolioIcon from "./Assets/icons/portfolio.png"
+import porfile from "./Assets/icons/fin.png"
 
 const App = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
@@ -23,7 +26,7 @@ const App = () => {
 
   return (
 
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ZoomProvider>
         <div >
 
@@ -38,14 +41,14 @@ const App = () => {
             </div>
             <div className="navLeft">
               <div className="profile">
-                <img src="./fin.png" className="profile" alt="loading" />
+                <img src={porfile} className="profile" alt="loading" />
                 <p className="profileName">Aditya .M</p>
               </div>
 
-              <NavLeft navText={"Home"} navTo={"/"} imgs={"./home4.png"} onClick={handleLinkClick} />
-              <NavLeft navText={"About"} navTo={"About"} imgs={"./about.png"} onClick={handleLinkClick} />
-              <NavLeft navText={"Resume"} navTo={"Resume"} imgs={"./portfolio.png"} onClick={handleLinkClick} />
-              <NavLeft navText={"Portfolio"} navTo={"Portfolio"} imgs={"./resume.png"} onClick={handleLinkClick} />
+              <NavLeft navText={"Home"} navTo={"/"} imgs={homeIcon} onClick={handleLinkClick} />
+              <NavLeft navText={"About"} navTo={"About"} imgs={aboutIcon} onClick={handleLinkClick} />
+              <NavLeft navText={"Resume"} navTo={"Resume"} imgs={resumeIcon} onClick={handleLinkClick} />
+              <NavLeft navText={"Portfolio"} navTo={"Portfolio"} imgs={portfolioIcon} onClick={handleLinkClick} />
               <NavLeftFotter />
             </div>
           </div>

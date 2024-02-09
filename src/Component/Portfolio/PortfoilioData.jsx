@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 const PortfoilioData = ({ images }) => {
   return (
     <>
+     <div className={styles.container1}>
+        <div className={styles.main1}>
       {images.map((image) => (
         <div className={styles.box1} key={image.id}>
-          <Link to={image.links}>
+          <Link to={image.links} >
             <div className={styles.imageBackground}>
               <img src={image.src} className={styles.img1} alt={image.title} />
             </div>
@@ -16,6 +18,8 @@ const PortfoilioData = ({ images }) => {
           </Link>
         </div>
       ))}
+      </div>
+      </div>
     </>
   );
 };
