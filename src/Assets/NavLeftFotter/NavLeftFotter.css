@@ -11,18 +11,26 @@
     background-color: rgb(233, 206, 206);
 }
 
-
-
 .socialMedia {
     display: flex;
 }
 
-.animation {
-    width: 2.5vw;
-    height: 5vh;
-    margin: 0 5px;
-}
+
 
 .socialMedia a {
     display: inline-block;
+}
+
+@media only screen and (min-width: 600px) {
+.animation {
+        width: 3svw;
+        margin: 0 5px;
+        
+    }
+}
+@media only screen and (max-width: 600px) {
+
+    .animation {
+        width: 10vw;
+    }
 }

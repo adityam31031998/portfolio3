@@ -10,19 +10,22 @@ const Home = () => {
   return (
     <div className="home">
       <div className="col-12">
-        <div class="col-8">
+        <div className="col-8">
           {/* <div className="colh-12"></div> */}
-          <div class="slider">
-            <div class="caption">
+          <div className="box">
+
+          <div className="slider">
+            <div className="caption">
               I Am
-              <div class="text-box">
+              <div className="text-box">
                 <div>Full Stack</div>
                 <div>Mern Stack</div>
                 <div>Mern Stack</div>
               </div>
             </div>
-            <div class="carousel-container">
-              <div class="carousel-wrapper" id="carouselWrapper">
+
+            <div className="carousel-container">
+              <div className="carousel-wrapper" id="carouselWrapper">
                 <Slider src="./logo/html.png" />
                 <Slider src="./logo/js.png" />
                 <Slider src="./logo/reactjs.png" />
@@ -34,6 +37,7 @@ const Home = () => {
                 <Slider src="./logo/git.png" />
               </div>
             </div>
+          </div>
           </div>
           {/* <div className="type-wrap">
             <Typed
@@ -51,21 +55,20 @@ const Home = () => {
           </div> */}
           <div className="colh-12">
             <img src="./work.png" alt="loading" className="work" />
+         
           </div>
         </div>
 
-        <div class="col-3">
-          <div className="image-container">
+        {/* <div className="col-3"> */}
+          {/* <div className="image-container"> */}
+            <img src="./Banner2.png" alt="loading" className="background-image"/>
             <Lottie animationData={animationData} className="overlay-image1" />
             {/* <Lottie animationData={htmlIcon} className="overlay-image" /> */}
             <Lottie animationData={loading} className="overlay-image" />
-            <img
-              src="./Banner1.png"
-              alt="loading"
-              className="background-image"
-            />
-          </div>
-        </div>
+          {/* </div> */}
+        {/* </div> */}
+
+      {/* <img src="./bg.png" alt="loading"  className="wal" /> */}
       </div>
     </div>
   );

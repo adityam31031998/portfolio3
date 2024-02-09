@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useZoom } from "../Zoom/ZoomContext";
 import "./NavLeft.css";
 
-const NavLeft = ({ navText, navTo, imgs }) => {
+const NavLeft = ({ navText, navTo, imgs, onClick }) => {
   const { setZoom } = useZoom();
 
   const handleLinkClick = () => {
@@ -12,6 +12,10 @@ const NavLeft = ({ navText, navTo, imgs }) => {
     setTimeout(() => {
       setZoom(navTo, false);
     }, 999);
+
+    if (onClick) {
+      onClick();
+    }
   };
 
   return (

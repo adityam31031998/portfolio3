@@ -3,7 +3,7 @@ import "./Home.css";
 const Slider = ({ src }) => {
   return (
     <div>
-      <div class="carousel-slide">
+      <div className="carousel-slide">
         <img src={src} className="logo" alt="loading" />
       </div>
     </div>
